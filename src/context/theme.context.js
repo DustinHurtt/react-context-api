@@ -9,18 +9,12 @@ const ThemeContext = createContext();
 // CREATE A WRAPPER COMPONENT
 function ThemeProviderWrapper({ children }) {
 
-    const [ toggle, setToggle ] = useState(false)
+    const [ toggle, setToggle ] = useState(true)
     const [ mode, setMode ] = useState('light')
-
-    const toggleTheme = () => {
-        setToggle(!toggle)
-        setMode(toggle ? "dark" : "light")
-        
-    }
 
   return (
 
-    <ThemeContext.Provider value={{ toggleTheme, mode }}>
+    <ThemeContext.Provider value={{  mode, toggle, setToggle, setMode }}>
         {children}
     </ThemeContext.Provider>
   )

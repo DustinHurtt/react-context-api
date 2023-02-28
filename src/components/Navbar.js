@@ -7,7 +7,15 @@ import { ThemeContext } from "./../context/theme.context"; //
  
 function Navbar() {
 
-    const { mode, toggleTheme } = useContext(ThemeContext);
+    const { mode, toggle, setToggle, setMode } = useContext(ThemeContext);
+
+    const toggleTheme = async () => {
+
+        setToggle(!toggle)
+        setMode(toggle ? "dark" : "light")    
+
+    }
+
     
   return (
     <nav className={"Navbar " + mode}> 
